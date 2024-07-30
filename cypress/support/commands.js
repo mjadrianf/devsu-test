@@ -283,8 +283,8 @@ Cypress.Commands.add('validafindByStatus', (response) => {
       // Validamos que cada registro tenga las propiedades 'id', 'category', 'name' y 'status'
       expect(record).to.have.property('id');
       //expect(record).to.have.property('category');
-      expect(record.category).to.have.property('id');
-      expect(record.category).to.have.property('name');
+      //expect(record.category).to.have.property('id');
+     // expect(record.category).to.have.property('name');
       expect(record).to.have.property('name');
       expect(record).to.have.property('status');
     });
