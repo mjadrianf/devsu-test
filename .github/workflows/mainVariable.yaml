@@ -42,3 +42,4 @@ jobs:
           else
             echo "Tipo de prueba no reconocido: $TEST_TYPE"
             exit 1
+          fi
