@@ -35,11 +35,10 @@ jobs:
       - name: Run Selected Tests
         run: |
           TEST_TYPE="${{ github.event.inputs.test-type }}"
-          if [ "$TEST_TYPE" == "e2e" ]; then
+          if [ "$TEST_TYPE" = "e2e" ]; then
             npx cypress run --record --key $CYPRESS_RECORD_KEY --spec "cypress/e2e/e2eLoginTest.cy.js"
-          elif [ "$TEST_TYPE" == "api" ]; then
+          elif [ "$TEST_TYPE" = "api" ]; then
             npx cypress run --record --key $CYPRESS_RECORD_KEY --spec "cypress/e2e/petsApiTest.cy.js"
           else
             echo "Tipo de prueba no reconocido: $TEST_TYPE"
             exit 1
-
