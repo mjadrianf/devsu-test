@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       test-type:
-        description: 'Elija el tipo de prueba a Ejecutar'
+        description: 'Elija el tipo de prueba a ejecutar'
         required: true
         type: choice
         options:
@@ -41,3 +41,4 @@ jobs:
           else
             echo "Tipo de prueba no reconocido: ${{ github.event.inputs.test-type }}"
             exit 1
+
