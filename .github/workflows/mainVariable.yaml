@@ -16,7 +16,7 @@ jobs:
   cypress-run:
     name: Cypress run
     runs-on: ubuntu-latest
-    env: 
+    env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # Clave del cloud de Cypress
 
@@ -34,11 +34,12 @@ jobs:
 
       - name: Run Selected Tests
         run: |
-          if [ "${{ github.event.inputs.test-type }}" == "e2e" ]; then
+          TEST_TYPE="${{ github.event.inputs.test-type }}"
+          if [ "$TEST_TYPE" == "e2e" ]; then
             npx cypress run --record --key $CYPRESS_RECORD_KEY --spec "cypress/e2e/e2eLoginTest.cy.js"
-          elif [ "${{ github.event.inputs.test-type }}" == "api" ]; then
+          elif [ "$TEST_TYPE" == "api" ]; then
             npx cypress run --record --key $CYPRESS_RECORD_KEY --spec "cypress/e2e/petsApiTest.cy.js"
           else
-            echo "Tipo de prueba no reconocido: ${{ github.event.inputs.test-type }}"
+            echo "Tipo de prueba no reconocido: $TEST_TYPE"
             exit 1
 
