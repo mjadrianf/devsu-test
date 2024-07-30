@@ -1,0 +1,43 @@
+name: Cypress QA E2E and API Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      test-type:
+        description: 'Elija el tipo de prueba a Ejecutar'
+        required: true
+        type: choice
+        options:
+          - e2e
+          - api
+        default: 'e2e'
+
+jobs:
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-latest
+    env: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # Clave del cloud de Cypress
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Selected Tests
+        run: |
+          if [ "${{ github.event.inputs.test-type }}" == "e2e" ]; then
+            npx cypress run --record --key $CYPRESS_RECORD_KEY --spec "cypress/e2e/e2eLoginTest.cy.js"
+          elif [ "${{ github.event.inputs.test-type }}" == "api" ]; then
+            npx cypress run --record --key $CYPRESS_RECORD_KEY --spec "cypress/e2e/petsApiTest.cy.js"
+          else
+            echo "Tipo de prueba no reconocido: ${{ github.event.inputs.test-type }}"
+            exit 1

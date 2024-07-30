@@ -1,0 +1,33 @@
+En este repositorio (https://github.com/mjadrianf/devsu-test) se encuentran implementados en Cypress los siguientes escenarios de prueba:
+
+Los tests implementados en Cypress proporcionan una cobertura integral tanto para las pruebas de extremo a extremo (E2E) como para las pruebas de API, 
+asegurando la calidad y fiabilidad de las funcionalidades clave de la aplicación. A continuación se presenta un resumen de los dos principales tests:
+
+1.- e2eLoginTest.cy.js
+
+Descripción: Este test evalúa un escenario E2E que cubre el flujo funcional desde el inicio de sesión hasta la validación de una compra exitosa.
+Propósito: Garantizar que los usuarios puedan navegar sin problemas desde el login hasta completar una compra, verificando cada paso crucial del proceso. 
+Esto incluye la autenticación del usuario, la navegación por la aplicación, la selección de productos y la finalización de la transacción.
+Impacto: La validación de este tipo de flujos funcionales permite asegurar que la experiencia del usuario sea coherente y sin interrupciones, 
+lo cual es fundamental para la satisfacción y retención de clientes.
+
+2.- petsApiTest.cy.js
+
+Descripción: Este test evalúa las solicitudes a las APIs relacionadas con la gestión de mascotas, cubriendo varios aspectos críticos.
+Escenarios Cubiertos:
+ - Añadir Mascota: Verifica que una nueva mascota pueda ser añadida correctamente a través de la API.
+ - Consultar Mascota Añadida: Confirma que la mascota añadida puede ser recuperada con precisión desde la base de datos.
+ - Actualizar Mascota Añadida: Asegura que es posible actualizar la información de la mascota, incluyendo el cambio de nombre y el estado a "SOLD".
+ - Consulta de Búsqueda por Estatus Disponible: Valida que se puedan realizar consultas de mascotas disponibles según su estado.
+Propósito: Garantizar la integridad y funcionalidad de las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en las APIs, 
+asegurando que las interacciones del sistema backend funcionen como se espera.
+Impacto: La fiabilidad de las APIs es crítica para el correcto funcionamiento de las aplicaciones que dependen de estos servicios, 
+y estos tests aseguran que las operaciones esenciales relacionadas con las mascotas se realicen sin errores.
+
+Conclusión General
+Los tests e2eLoginTest.cy.js y petsApiTest.cy.js implementados en Cypress son fundamentales para validar tanto la funcionalidad de front-end como 
+la de back-end de la aplicación. El test E2E garantiza que los usuarios pueden completar un flujo de trabajo esencial de manera fluida, 
+mientras que el test de API asegura que las operaciones de backend relacionadas con las mascotas sean robustas y confiables. 
+Juntos, estos tests contribuyen significativamente a la calidad general del software, proporcionando confianza en la estabilidad y funcionalidad del sistema 
+tanto para los desarrolladores como para los usuarios finales.
+

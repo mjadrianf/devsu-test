@@ -1,0 +1,26 @@
+{
+  "name": "devsu-test",
+  "version": "1.0.0",
+  "description": "E2E and API test for Devsu aplication",
+  "main": "index.js",
+  "scripts": {
+    "cy:test": "cypress run",
+    "cy:open": "cypress open",
+    "cy:record": "npx cypress run --record --key $CYPRESS_DASHBOARD_KEY",
+    "cy:dashboard":"npx cypress run --record --key 6e86a7c1-82b2-44bb-a4ad-997adea54fec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjadrianf/devsu-test.git"
+  },
+  "author": "Maria Jose Adrian Fuentes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjadrianf/devsu-test/issues"
+  },
+  "homepage": "https://github.com/mjadrianf/devsu-test#readme",
+  "dependencies": {
+    "cypress": "^13.13.1",
+    "cypress-plugin-api": "^2.11.2"
+  }
+}
